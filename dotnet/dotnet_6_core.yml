@@ -19,5 +19,6 @@
         update_cache: yes
     
     - name: Install dotnet sdk 6.0
-      shell: 
-        cmd: sudo apt install dotnet-sdk-6.0 -y
+      package:
+        name: 'dotnet-host'
+        state: present
