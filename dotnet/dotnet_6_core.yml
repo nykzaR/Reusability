@@ -19,6 +19,6 @@
         update_cache: yes
     
     - name: Install dotnet sdk 6.0
-      ansible.builtin.package:
+      package:
         name: 'dotnet-sdk-6.0'
         state: present
