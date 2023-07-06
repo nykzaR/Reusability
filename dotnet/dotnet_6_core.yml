@@ -21,7 +21,6 @@
     - name: Install dotnet sdk 6.0
       ansible.builtin.package:
         name:
-          - dotnet-sdk-6.0
           - aspnetcore-runtime-6.0
           - dotnet-runtime-6.0
         state: present
