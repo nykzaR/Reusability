@@ -19,5 +19,4 @@
         update_cache: yes
     
     - name: Install dotnet sdk 6.0
-      ansible.builtin.shell:
-        cmd: sudo apt-get install dotnet-sdk-6.0 -y
+      ansible.builtin.shell: "sudo apt-get install dotnet-sdk-6.0 -y"
