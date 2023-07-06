@@ -1,0 +1,27 @@
+---
+- name: Install dotnet core 6 on ubuntu
+  become: yes
+  hosts: all
+  tasks:
+
+    - name: Download and save Microsoft packages for ubuntu
+      ansible.builtin.get_url:
+        url: https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+        dest: packages-microsoft-prod.deb
+
+    - name: Install downloaded dpkg packages
+      ansible.builtin.dpkg_selections:
+        name: packages-microsoft-prod.deb
+        selection: install
+
+    - name: Update packages
+      apt:
+        update_cache: yes
+    
+    - name: Install dotnet sdk 6.0
+      ansible.builtin.package:
+        name:
+          - dotnet-sdk-6.0
+          - aspnetcore-runtime-6.0
+          - dotnet-runtime-6.0
+        state: present
