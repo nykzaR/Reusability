@@ -20,7 +20,4 @@
     
     - name: Install dotnet sdk 6.0
       ansible.builtin.command:
-        cmd:
-          - sudo apt-get install dotnet-sdk-6.0 -y
-          - aspnetcore-runtime-6.0
-          - dotnet-runtime-6.0
+        cmd: sudo apt-get install dotnet-sdk-6.0 -y
