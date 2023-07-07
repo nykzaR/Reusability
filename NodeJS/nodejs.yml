@@ -1,0 +1,15 @@
+---
+- name: NodeJS Installations on Ubuntu & RedHat
+  become: yes
+  hosts: AppServers
+  
+  tasks:
+    - name: Update Ubuntu packages
+      apt:
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Debian"   
+    
+    - name: Install NodeJS
+      package:
+        name: "{{ package }}"
+        state: present
