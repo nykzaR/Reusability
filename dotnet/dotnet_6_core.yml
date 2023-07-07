@@ -13,7 +13,8 @@
       ansible.builtin.dpkg_selections:
         name: packages-microsoft-prod.deb
         selection: install
-      notify: Update packages
+      notify: 
+        - Update packages
 
     - name: Copy preferences file
       ansible.builtin.copy:
@@ -22,7 +23,8 @@
         owner: root
         group: root
         mode: '0644'
-      notify: Update packages
+      notify: 
+        - Update packages
 
     - name: Install dotnet core sdk 6.0
       community.general.snap:
