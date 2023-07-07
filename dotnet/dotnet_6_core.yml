@@ -31,7 +31,7 @@
         classic: yes
         state: present
 
-  handlesrs:
+  handlers:
     - name: Update packages
       apt:
         update_cache: yes
