@@ -25,7 +25,7 @@
       notify: Update packages
 
     - name: Install dotnet core sdk 6.0
-      community.general.plugins.module_utils.cmd_runner.CmdRunner:
+      community.general.snap:
         name: 'dotnet-sdk'
         channel: 6.0
         classic: yes
