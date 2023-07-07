@@ -1,5 +1,5 @@
 ---
-- name: Install dotnet core 6 on ubuntu
+- name: Install dotnet 6 on ubuntu 20.04
   become: yes
   hosts: all
   tasks:
@@ -13,12 +13,25 @@
       ansible.builtin.dpkg_selections:
         name: packages-microsoft-prod.deb
         selection: install
+      notify: Update packages
 
+    - name: Copy preferences file
+      ansible.builtin.copy:
+        src: 'preferences'
+        dest: /etc/apt/preferences
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Update packages
+
+    - name: Install dotnet core sdk 6.0
+      snap:
+        name: 'dotnet-sdk'
+        channel: 6.0
+        classic: yes
+        state: present
+
+  handlesrs:
     - name: Update packages
       apt:
         update_cache: yes
-    
-    - name: Install dotnet sdk 6.0
-      package:
-        name: 'dotnet-host'
-        state: present
