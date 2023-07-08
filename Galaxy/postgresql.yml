@@ -1,7 +1,6 @@
 ---
-- name: Postgres Install
-  become: yes
-  hosts: all
-  
-- collections:
-    - name: "community.postgresql"
+- name: Install Postgres
+- hosts: db
+  roles:
+    - role: geerlingguy.postgresql
+      become: yes
