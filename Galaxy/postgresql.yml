@@ -1,0 +1,7 @@
+---
+- name: Postges Install
+  become: yes
+  hosts: all
+  
+  collections:
+    - name: community.postgresql
