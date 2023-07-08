@@ -1,7 +1,7 @@
 ---
-- name: Postges Install
+- name: Postgres Install
   become: yes
   hosts: all
   
-  collections:
+- collections:
     - name: "community.postgresql"
